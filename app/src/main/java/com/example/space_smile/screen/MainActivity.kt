@@ -1,10 +1,12 @@
-package com.example.space_smile
+package com.example.space_smile.screen
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import com.denzcoskun.imageslider.ImageSlider
 import com.denzcoskun.imageslider.models.SlideModel
+import com.example.space_smile.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,8 +21,13 @@ class MainActivity : AppCompatActivity() {
 
         val imageSlider = findViewById<ImageSlider>(R.id.image_slider)
         imageSlider.setImageList(imageList)
-        val intent = Intent(this,SettingScreenActivity::class.java)
-        startActivity(intent)
+
+        val actionClickLogin = findViewById<Button>(R.id.action_click_login)
+        actionClickLogin.setOnClickListener {
+            val intent = Intent(this, SettingScreenActivity::class.java)
+            startActivity(intent)
+        }
+
 
     }
 
