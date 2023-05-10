@@ -27,8 +27,6 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, SettingScreenActivity::class.java)
             startActivity(intent)
         }
-
-
     }
 
 

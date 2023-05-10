@@ -1,6 +1,7 @@
 package com.example.space_smile.service
 
 import com.example.space_smile.model.Gps
+import com.example.space_smile.model.SystemMap
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -22,4 +23,8 @@ object apiService {
 interface GPSAPI {
     @GET("/gps")
     suspend fun getGPS(): Response<ArrayList<Gps>>
+}
+interface  SYSTEMAPI {
+    @GET("/system")
+    suspend fun getSystem(): Response<ArrayList<SystemMap>>
 }

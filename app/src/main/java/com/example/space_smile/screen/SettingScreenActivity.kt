@@ -1,14 +1,13 @@
 package com.example.space_smile.screen
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
-import androidx.databinding.DataBindingUtil.setContentView
-import androidx.databinding.ViewDataBinding
 import com.example.space_smile.R
-import com.example.space_smile.databinding.ActivityMainBinding
 import com.example.space_smile.databinding.ActivitySettingScreenBinding
 import com.example.space_smile.model.Gps
 import com.example.space_smile.service.GPSAPI
@@ -25,7 +24,6 @@ class SettingScreenActivity : AppCompatActivity() {
         binding = ActivitySettingScreenBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-//        binding.tvTitleGPSConnect.text = gpsConnect.number.toString()
 //        lấy dữ liệu từ api
         val getGps = apiService.getInstance().create(GPSAPI::class.java)
 
@@ -40,6 +38,12 @@ class SettingScreenActivity : AppCompatActivity() {
         val actionBarBackButton = findViewById<ImageView>(R.id.action_bar_back_button)
         actionBarBackButton.setOnClickListener {
             onBackPressed()
+        }
+
+        val actionSettingSystem = findViewById<LinearLayout>(R.id.action_setting_system)
+        actionSettingSystem.setOnClickListener {
+            val intent = Intent(this, SystemMapActivity::class.java)
+            startActivity(intent)
         }
     }
 }
